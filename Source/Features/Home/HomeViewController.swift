@@ -1,20 +1,13 @@
-//
-//  ViewController.swift
-//  productive
-//
-//  Created by Ai-Lyn Tang on 20/10/19.
-//  Copyright © 2019 CoderLyn. All rights reserved.
-//
 
 import UIKit
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
+
+  let viewModel = HomeViewModel()
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view.
+    title = viewModel.navBarTitle
+    navigationItem.rightBarButtonItem = UIBarButtonItem(title: viewModel.rightBarButtonTitle, style: .plain, target: self, action: nil)
   }
-
-
 }
-
