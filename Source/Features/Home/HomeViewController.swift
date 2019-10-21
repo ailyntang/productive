@@ -8,6 +8,10 @@ final class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     title = viewModel.navBarTitle
-    navigationItem.rightBarButtonItem = UIBarButtonItem(title: viewModel.rightBarButtonTitle, style: .plain, target: self, action: nil)
+    navigationItem.rightBarButtonItem = UIBarButtonItem(title: viewModel.rightBarButtonTitle, style: .plain, target: self, action: #selector(addTapped))
+  }
+
+  @objc func addTapped() {
+    navigationController?.pushViewController(SuggestedCategoryViewController(), animated: true)
   }
 }
