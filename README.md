@@ -8,7 +8,7 @@ Replicating the ["Productive - Habit Tracker" app](https://apps.apple.com/us/app
 
 
 # User stories
-## P-001 Empty Home Screen
+## P-001 Empty Home Screen (DONE)
 **As a user, I want to add a new habit**  
 **So that I can track that habit**
 
@@ -36,7 +36,7 @@ Given that I am on the home screen
 When I tap on the add button  
 Then I will be pushed to the "suggested category" view
 
-## P-002 Add New Habit
+## P-002 Add New Habit (DOING)
 **As a user, I want to add a new habit**  
 **So that I can track that habit**
 
