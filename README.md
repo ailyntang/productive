@@ -19,7 +19,7 @@ Replicating the ["Productive - Habit Tracker" app](https://apps.apple.com/us/app
 
 **Out of scope**
 
-* Add new habit screen
+* Suggested category screen
 * Schedule screen
 
 ### Acceptance criteria
@@ -28,13 +28,13 @@ Replicating the ["Productive - Habit Tracker" app](https://apps.apple.com/us/app
 
 Given that I have launched the app  
 When I land in the app  
-Then I will see the home screen with a navigation controller and a plus button
+Then I will see the home screen with a navigation controller and an add button
 
 **Scenario 2: Add new habit**
 
 Given that I am on the home screen  
-When I tap on the plus button  
-Then I will be pushed to the "add new habit" view
+When I tap on the add button  
+Then I will be pushed to the "suggested category" view
 
 **Scenario 3: View habits**
 
