@@ -29,7 +29,7 @@ extension SuggestedCategoryViewController: UITableViewDataSource {
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeue(cellType: CommonCell.self, for: indexPath)
-    cell.configure()
+    cell.configure(with: viewModel.rowDisplayModel(for: indexPath))
     return cell
   }
 
