@@ -8,7 +8,7 @@ Replicating the ["Productive - Habit Tracker" app](https://apps.apple.com/us/app
 
 
 # User stories
-## P-001 Empty Home Screen
+## P-001 Empty Home Screen (DONE)
 **As a user, I want to add a new habit**  
 **So that I can track that habit**
 
@@ -36,19 +36,19 @@ Given that I am on the home screen
 When I tap on the add button  
 Then I will be pushed to the "suggested category" view
 
-## P-002 Add New Habit
-**As a user, I want to add a new habit**  
-**So that I can track that habit**
+## P-002 Suggested Category (DOING)
+**As a user, I want to see a list of suggested categories**  
+**So that I can choose a category from the list**
 
 **In scope**
 
 * Suggested Category screen
-* Suggested Habit screen
-* Choose Name and Icon screen
 
 **Out of scope**
 
 * Schedule screen
+* Choose Name and Icon screen
+* Suggested Habit screen
 
 ### Acceptance Criteria
 
@@ -58,7 +58,27 @@ Given that I am on the suggested category screen
 When I tap on a category  
 Then I will be pushed to the "suggested habit" view
 
-**Scenario 2: Suggested habit**
+**Scenario 2: Write my own habit**
+
+Given that I am on the suggested category screen  
+When I tap on "write my own habit"  
+Then I will be pushed to the "choose name and icon" view
+
+
+## P-003 Suggested Habit
+**As a user, I want to see a list of suggested habits**  
+**So that I can choose a habit from the list**
+
+**In scope**
+
+* Suggested Habit screen
+
+**Out of scope**
+
+* Schedule screen
+* Choose Name and Icon screen
+
+**Scenario 1: Suggested habit**
 
 Given that I am on the suggested habit screen  
 When I tap on a habit  
@@ -66,8 +86,8 @@ Then I will be pushed to the "choose name and icon" view
 
 **Scenario 2: Write my own habit**
 
-Given that I am on the suggested category or habit screen  
-When I tap on write my own habit  
+Given that I am on the suggested habit screen  
+When I tap on "write my own habit"  
 Then I will be pushed to the "choose name and icon" view
 
 ## P-003 Non-empty Home Screen
@@ -91,3 +111,11 @@ And I will see the completed habit is greyed out with a tick symbol
 
 **Scenario 3: Delete a habit**
 
+
+
+# Credits
+Thanks to these great people for their icons from [freepick](https://www.flaticon.com)
+
+* Freepik
+* fjstudio
+* Smashicons
