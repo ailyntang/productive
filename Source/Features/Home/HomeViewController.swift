@@ -12,6 +12,6 @@ final class ViewController: UIViewController {
   }
 
   @objc func addTapped() {
-    navigationController?.pushViewController(SuggestedCategoryViewController(), animated: true)
+    navigationController?.pushViewController(SuggestedCategoryViewController.init(with: SuggestedCategoryViewModel()), animated: true)
   }
 }
