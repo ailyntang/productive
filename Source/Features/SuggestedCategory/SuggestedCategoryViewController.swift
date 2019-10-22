@@ -17,19 +17,28 @@ final class SuggestedCategoryViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    title = viewModel.navBarTitle
     tableView.register(cellType: CommonCell.self)
   }
 }
 
 extension SuggestedCategoryViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return viewModel.numberOfRows
+    return viewModel.numberOfRowsIn(section)
   }
-  
+
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeue(cellType: CommonCell.self, for: indexPath)
     cell.configure()
     return cell
+  }
+
+  func numberOfSections(in tableView: UITableView) -> Int {
+    return viewModel.numberOfSections
+  }
+  
+  func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    return viewModel.titleForHeaderIn(section)
   }
 }
 
