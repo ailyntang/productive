@@ -111,3 +111,11 @@ And I will see the completed habit is greyed out with a tick symbol
 
 **Scenario 3: Delete a habit**
 
+
+
+# Credits
+Thanks to these great people for their icons from [freepick](https://www.flaticon.com)
+
+* Freepik
+* fjstudio
+* Smashicons
