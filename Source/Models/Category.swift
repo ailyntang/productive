@@ -1,13 +1,14 @@
 
 import UIKit
 
-enum Category {
+enum Category: CaseIterable {
   case health
   case fitness
   case home
   case hobbies
   case social
   case efficiency
+  case custom
   
   var title: String {
     switch self {
@@ -17,6 +18,7 @@ enum Category {
     case .hobbies: return "Hobbies"
     case .social: return "Social"
     case .efficiency: return "Efficiency"
+    case .custom: return "Write my own"
     }
   }
   
@@ -28,6 +30,7 @@ enum Category {
     case .hobbies: return #imageLiteral(resourceName: "iconStar")
     case .social: return #imageLiteral(resourceName: "iconWomanMan")
     case .efficiency: return #imageLiteral(resourceName: "iconClock")
+    case .custom: return #imageLiteral(resourceName: "iconPencil")
     }
   }
 }
