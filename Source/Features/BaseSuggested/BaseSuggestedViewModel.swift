@@ -2,11 +2,18 @@
 import UIKit
 
 struct BaseSuggestedViewModel {
-  let navBarTitle = "Suggested Categories"
+  let navBarTitle: String
   let numberOfSections = 2
+  
+  private let content: String
+  
+  init(content: String) {
+    self.content = content
+    navBarTitle = content == "category" ? "Suggested Category" : "Suggested Habit"
+  }
 
   func numberOfRowsIn(_ section: Int) -> Int {
-    return section == 0 ? 1 : Category.allCases.count - 1
+    return section == 0 ? 1 : Category.allCases.count
   }
   
   func titleForHeaderIn(_ section: Int) -> String? {
@@ -15,26 +22,27 @@ struct BaseSuggestedViewModel {
   
   func rowDisplayModel(for indexPath: IndexPath) -> CommonCellDisplayModelType {
     if indexPath.section == 0 {
-      return CommonCellDisplayModel(icon: Category.custom.icon!, title: Category.custom.title)
+      return CommonCellDisplayModel(icon: UIImage(named: "iconPencil"), title: "Write my own")
     }
-
-    switch indexPath.row {
-    case 0: return CommonCellDisplayModel(icon: Category.health.icon!, title: Category.health.title)
-    case 1: return CommonCellDisplayModel(icon: Category.fitness.icon!, title: Category.fitness.title)
-    case 2: return CommonCellDisplayModel(icon: Category.home.icon!, title: Category.home.title)
-    case 3: return CommonCellDisplayModel(icon: Category.hobbies.icon!, title: Category.hobbies.title)
-    case 4: return CommonCellDisplayModel(icon: Category.social.icon!, title: Category.social.title)
-    case 5: return CommonCellDisplayModel(icon: Category.efficiency.icon!, title: Category.efficiency.title)
-    default: return CommonCellDisplayModel(icon: Category.hobbies.icon!, title: Category.health.title)
+    
+    var cell: CommonCellDisplayModelType
+    if content == "category" {
+      cell = Category(rawValue: indexPath.row) as! Category
+    } else {
+      cell = HealthHabit(rawValue: indexPath.row) as! HealthHabit
     }
+    return CommonCellDisplayModel(icon: cell.icon, title: cell.title)
   }
-  
+
   func viewControllerForRowAt(_ indexPath: IndexPath) -> UIViewController {
     if indexPath.section == 0 {
       // return ChooseNameAndIcon screen
       // Base is just a placeholder
-      return BaseSuggestedViewController(with: BaseSuggestedViewModel())
+      return BaseSuggestedViewController(with: BaseSuggestedViewModel(content: "meh"))
     }
-    return BaseSuggestedViewController(with: BaseSuggestedViewModel())
+    
+    let habit = Category(rawValue: indexPath.row)?.title
+    return BaseSuggestedViewController(with: BaseSuggestedViewModel(content: habit ?? ""))
   }
 }
+

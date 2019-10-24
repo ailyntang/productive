@@ -1,14 +1,13 @@
 
 import UIKit
 
-enum Category: CaseIterable, CommonCellDisplayModelType {
-  case health
+enum Category: Int, CaseIterable, CommonCellDisplayModelType {
+  case health = 0
   case fitness
   case home
   case hobbies
   case social
   case efficiency
-  case custom
   
   var title: String {
     switch self {
@@ -18,7 +17,6 @@ enum Category: CaseIterable, CommonCellDisplayModelType {
     case .hobbies: return "Hobbies"
     case .social: return "Social"
     case .efficiency: return "Efficiency"
-    case .custom: return "Write my own"
     }
   }
   
@@ -30,13 +28,12 @@ enum Category: CaseIterable, CommonCellDisplayModelType {
     case .hobbies: return #imageLiteral(resourceName: "iconStar")
     case .social: return #imageLiteral(resourceName: "iconWomanMan")
     case .efficiency: return #imageLiteral(resourceName: "iconClock")
-    case .custom: return #imageLiteral(resourceName: "iconPencil")
     }
   }
 }
 
-enum HealthHabit: CommonCellDisplayModelType {
-  case eatMeal
+enum HealthHabit: Int, CommonCellDisplayModelType {
+  case eatMeal = 0
   case eatFruit
   case drinkWater
   case brushFloss
