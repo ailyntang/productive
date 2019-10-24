@@ -26,11 +26,13 @@ struct BaseSuggestedViewModel {
     }
     
     var cell: CommonCellDisplayModelType
-    if content == "category" {
-      cell = Category(rawValue: indexPath.row) as! Category
-    } else {
-      cell = HealthHabit(rawValue: indexPath.row) as! HealthHabit
+    let row = indexPath.row
+    switch content {
+    case "category": cell = Category(rawValue: row) as! Category
+    case "health": cell = HealthHabit(rawValue: row) as! HealthHabit
+    default: cell = HealthHabit(rawValue: row) as! HealthHabit
     }
+
     return CommonCellDisplayModel(icon: cell.icon, title: cell.title)
   }
 
