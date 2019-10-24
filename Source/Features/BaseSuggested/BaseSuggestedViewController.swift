@@ -5,16 +5,14 @@ final class BaseSuggestedViewController: UIViewController {
   @IBOutlet private var tableView: UITableView!
   
   private var viewModel: BaseSuggestedViewModel!
-  private var row: Int?
 
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
   }
 
-  init(with viewModel: BaseSuggestedViewModel, row: Int?) {
+  init(with viewModel: BaseSuggestedViewModel) {
     super.init(nibName: nil, bundle: nil)
     self.viewModel = viewModel
-    self.row = row
   }
   
   override func viewDidLoad() {

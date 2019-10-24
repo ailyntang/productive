@@ -17,8 +17,7 @@ struct BaseSuggestedViewModel {
     if indexPath.section == 0 {
       return CommonCellDisplayModel(icon: Category.custom.icon!, title: Category.custom.title)
     }
-    
-    
+
     switch indexPath.row {
     case 0: return CommonCellDisplayModel(icon: Category.health.icon!, title: Category.health.title)
     case 1: return CommonCellDisplayModel(icon: Category.fitness.icon!, title: Category.fitness.title)
@@ -32,8 +31,10 @@ struct BaseSuggestedViewModel {
   
   func viewControllerForRowAt(_ indexPath: IndexPath) -> UIViewController {
     if indexPath.section == 0 {
-      return BaseSuggestedViewController(with: BaseSuggestedViewModel(), row: nil)
+      // return ChooseNameAndIcon screen
+      // Base is just a placeholder
+      return BaseSuggestedViewController(with: BaseSuggestedViewModel())
     }
-    return BaseSuggestedViewController(with: BaseSuggestedViewModel(), row: indexPath.row)
+    return BaseSuggestedViewController(with: BaseSuggestedViewModel())
   }
 }
