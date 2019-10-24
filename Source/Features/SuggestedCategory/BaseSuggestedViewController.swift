@@ -1,16 +1,16 @@
 
 import UIKit
 
-final class SuggestedCategoryViewController: UIViewController {
+final class BaseSuggestedViewController: UIViewController {
   @IBOutlet private var tableView: UITableView!
   
-  private var viewModel: SuggestedCategoryViewModel!
+  private var viewModel: BaseSuggestedViewModel!
 
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
   }
 
-  init(with viewModel: SuggestedCategoryViewModel) {
+  init(with viewModel: BaseSuggestedViewModel) {
     super.init(nibName: nil, bundle: nil)
     self.viewModel = viewModel
   }
@@ -22,7 +22,7 @@ final class SuggestedCategoryViewController: UIViewController {
   }
 }
 
-extension SuggestedCategoryViewController: UITableViewDataSource {
+extension BaseSuggestedViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return viewModel.numberOfRowsIn(section)
   }
@@ -42,6 +42,10 @@ extension SuggestedCategoryViewController: UITableViewDataSource {
   }
 }
 
-extension SuggestedCategoryViewController: UITableViewDelegate {
-  
+extension BaseSuggestedViewController: UITableViewDelegate {
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    tableView.deselectRow(at: indexPath, animated: true)
+    let viewController = viewModel.viewControllerForRowAt(indexPath)
+    navigationController?.pushViewController(viewController, animated: true)
+  }
 }

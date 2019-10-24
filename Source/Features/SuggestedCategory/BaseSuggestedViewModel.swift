@@ -1,12 +1,12 @@
 
 import UIKit
 
-struct SuggestedCategoryViewModel {
+struct BaseSuggestedViewModel {
   let navBarTitle = "Suggested Categories"
   let numberOfSections = 2
-  
+
   func numberOfRowsIn(_ section: Int) -> Int {
-    return section == 0 ? 1 : 6
+    return section == 0 ? 1 : Category.allCases.count - 1
   }
   
   func titleForHeaderIn(_ section: Int) -> String? {
@@ -18,6 +18,7 @@ struct SuggestedCategoryViewModel {
       return CommonCellDisplayModel(icon: Category.custom.icon!, title: Category.custom.title)
     }
     
+    
     switch indexPath.row {
     case 0: return CommonCellDisplayModel(icon: Category.health.icon!, title: Category.health.title)
     case 1: return CommonCellDisplayModel(icon: Category.fitness.icon!, title: Category.fitness.title)
@@ -27,5 +28,12 @@ struct SuggestedCategoryViewModel {
     case 5: return CommonCellDisplayModel(icon: Category.efficiency.icon!, title: Category.efficiency.title)
     default: return CommonCellDisplayModel(icon: Category.hobbies.icon!, title: Category.health.title)
     }
+  }
+  
+  func viewControllerForRowAt(_ indexPath: IndexPath) -> UIViewController {
+    if indexPath.section == 0 {
+      return BaseSuggestedViewController(with: BaseSuggestedViewModel())
+    }
+    return SuggestedHabitViewController(with: BaseSuggestedViewModel(), category: Category.hobbies)
   }
 }

@@ -3,13 +3,13 @@ import UIKit
 
 class SuggestedHabitViewController: UIViewController {
 
-  private var viewModel: SuggestedHabitViewModel!
+  private var viewModel: BaseSuggestedViewModel!
 
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
   }
 
-  init(with viewModel: SuggestedHabitViewModel) {
+  init(with viewModel: BaseSuggestedViewModel, category: Category) {
     super.init(nibName: nil, bundle: nil)
     self.viewModel = viewModel
   }
