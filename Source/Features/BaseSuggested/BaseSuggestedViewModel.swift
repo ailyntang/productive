@@ -36,9 +36,7 @@ struct BaseSuggestedViewModel {
 
   func viewControllerForRowAt(_ indexPath: IndexPath) -> UIViewController {
     if indexPath.section == 0 {
-      // return ChooseNameAndIcon screen
-      // Base is just a placeholder
-      return BaseSuggestedViewController(with: BaseSuggestedViewModel(content: "meh"))
+      return ChooseNameAndIconViewController(with: ChooseNameAndIconViewModel())
     }
     
     let habit = Category(rawValue: indexPath.row)?.title
