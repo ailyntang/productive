@@ -46,3 +46,16 @@ struct BaseSuggestedViewModel {
   }
 }
 
+/* Questions for Simon
+   Right now I'm passing in a string to my view model.
+   Ideally I'd like to pass in the enum, e.g. HealthHabit, Category or FitnessHabit
+   I can't figure out how to pass in the entire enum, rather than just one case of the enum
+ 
+   My other thought was to use a generic function to help with this. At the very least, to
+   refactor `rowDisplayModel`. But I can't get that to work.
+ */
+
+// How can I get this to work?
+//  private func createCell<Cell: CommonCellDisplayModelType>(with cellType: Cell.Type) -> CommonCellDisplayModelType {
+//    return Cell(rawValue: 3) as! Cell
+//  }
