@@ -32,8 +32,8 @@ struct BaseSuggestedViewModel {
   
   func viewControllerForRowAt(_ indexPath: IndexPath) -> UIViewController {
     if indexPath.section == 0 {
-      return BaseSuggestedViewController(with: BaseSuggestedViewModel())
+      return BaseSuggestedViewController(with: BaseSuggestedViewModel(), row: nil)
     }
-    return SuggestedHabitViewController(with: BaseSuggestedViewModel(), category: Category.hobbies)
+    return BaseSuggestedViewController(with: BaseSuggestedViewModel(), row: indexPath.row)
   }
 }

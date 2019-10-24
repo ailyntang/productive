@@ -24,8 +24,6 @@
 		6A635498235E88D70042F2D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A635497235E88D70042F2D0 /* Assets.xcassets */; };
 		6A63549C235ED8F20042F2D0 /* CommonCellDisplayModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A63549B235ED8F20042F2D0 /* CommonCellDisplayModelType.swift */; };
 		6A63549E235ED95E0042F2D0 /* CommonCellDisplayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A63549D235ED95E0042F2D0 /* CommonCellDisplayModel.swift */; };
-		6A6354A2235EDFED0042F2D0 /* SuggestedHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6354A0235EDFED0042F2D0 /* SuggestedHabitViewController.swift */; };
-		6A6354A3235EDFED0042F2D0 /* SuggestedHabitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A6354A1235EDFED0042F2D0 /* SuggestedHabitViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,8 +58,6 @@
 		6A635497235E88D70042F2D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6A63549B235ED8F20042F2D0 /* CommonCellDisplayModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonCellDisplayModelType.swift; sourceTree = "<group>"; };
 		6A63549D235ED95E0042F2D0 /* CommonCellDisplayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonCellDisplayModel.swift; sourceTree = "<group>"; };
-		6A6354A0235EDFED0042F2D0 /* SuggestedHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedHabitViewController.swift; sourceTree = "<group>"; };
-		6A6354A1235EDFED0042F2D0 /* SuggestedHabitViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuggestedHabitViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,8 +132,7 @@
 			children = (
 				6A635480235DB30C0042F2D0 /* Common */,
 				6A635463235D1EFA0042F2D0 /* Home */,
-				6A635479235D36DA0042F2D0 /* SuggestedCategory */,
-				6A63549F235EDFD20042F2D0 /* SuggestedHabit */,
+				6A635479235D36DA0042F2D0 /* BaseSuggested */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -184,14 +179,14 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
-		6A635479235D36DA0042F2D0 /* SuggestedCategory */ = {
+		6A635479235D36DA0042F2D0 /* BaseSuggested */ = {
 			isa = PBXGroup;
 			children = (
 				6A635486235DB3640042F2D0 /* BaseSuggestedViewController.xib */,
 				6A635485235DB3640042F2D0 /* BaseSuggestedViewController.swift */,
 				6A63547E235D37270042F2D0 /* BaseSuggestedViewModel.swift */,
 			);
-			path = SuggestedCategory;
+			path = BaseSuggested;
 			sourceTree = "<group>";
 		};
 		6A635480235DB30C0042F2D0 /* Common */ = {
@@ -233,15 +228,6 @@
 				6A635495235E82C00042F2D0 /* Category.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		6A63549F235EDFD20042F2D0 /* SuggestedHabit */ = {
-			isa = PBXGroup;
-			children = (
-				6A6354A1235EDFED0042F2D0 /* SuggestedHabitViewController.xib */,
-				6A6354A0235EDFED0042F2D0 /* SuggestedHabitViewController.swift */,
-			);
-			path = SuggestedHabit;
 			sourceTree = "<group>";
 		};
 		6A6354A8235F09F60042F2D0 /* CommonCell */ = {
@@ -340,7 +326,6 @@
 				6A635472235D21A40042F2D0 /* Home.storyboard in Resources */,
 				6A635484235DB34A0042F2D0 /* CommonCell.xib in Resources */,
 				6A635488235DB3640042F2D0 /* BaseSuggestedViewController.xib in Resources */,
-				6A6354A3235EDFED0042F2D0 /* SuggestedHabitViewController.xib in Resources */,
 				6A635498235E88D70042F2D0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,7 +347,6 @@
 				6A63546E235D1EFB0042F2D0 /* AppDelegate.swift in Sources */,
 				6A635483235DB34A0042F2D0 /* CommonCell.swift in Sources */,
 				6A635475235D33220042F2D0 /* HomeViewModel.swift in Sources */,
-				6A6354A2235EDFED0042F2D0 /* SuggestedHabitViewController.swift in Sources */,
 				6A635487235DB3640042F2D0 /* BaseSuggestedViewController.swift in Sources */,
 				6A63546C235D1EFB0042F2D0 /* HomeViewController.swift in Sources */,
 				6A63548C235DB9290042F2D0 /* UITableView+Dequeue.swift in Sources */,
