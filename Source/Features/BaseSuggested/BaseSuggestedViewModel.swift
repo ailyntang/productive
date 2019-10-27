@@ -13,6 +13,8 @@ struct BaseSuggestedViewModel {
   }
 
   func numberOfRowsIn(_ section: Int) -> Int {
+    guard section == 1 else { return 1 }
+
     switch habitStage {
     case .addCategory: return Category.allCases.count
     case .addAction: return habit.category?.actions.count ?? 0
@@ -20,8 +22,8 @@ struct BaseSuggestedViewModel {
   }
   
   func titleForHeaderIn(_ section: Int) -> String? {
-    guard section == 0 else { return nil }
-    
+    guard section == 1 else { return nil }
+
     switch habitStage {
     case .addCategory: return "Or choose from these categories"
     case .addAction: return "Or choose from these actions"
@@ -29,6 +31,9 @@ struct BaseSuggestedViewModel {
   }
   
   func cellViewModel(for indexPath: IndexPath) -> CommonCellDisplayModelType {
+    guard indexPath.section == 1 else {
+      return CommonCellDisplayModel(icon: UIImage(named: "iconPencil"), title: "Write my own")
+    }
     switch habitStage {
     case .addCategory:
       let category = Category(rawValue: indexPath.row)
