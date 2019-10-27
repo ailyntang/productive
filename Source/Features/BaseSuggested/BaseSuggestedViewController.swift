@@ -17,7 +17,6 @@ final class BaseSuggestedViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    title = viewModel.navBarTitle
     tableView.register(cellType: CommonCell.self)
   }
 }
@@ -29,7 +28,7 @@ extension BaseSuggestedViewController: UITableViewDataSource {
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeue(cellType: CommonCell.self, for: indexPath)
-    cell.configure(with: viewModel.rowDisplayModel(for: indexPath))
+    cell.configure(with: viewModel.cellViewModel(for: indexPath))
     return cell
   }
 
@@ -45,7 +44,5 @@ extension BaseSuggestedViewController: UITableViewDataSource {
 extension BaseSuggestedViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
-    let viewController = viewModel.viewControllerForRowAt(indexPath)
-    navigationController?.pushViewController(viewController, animated: true)
   }
 }

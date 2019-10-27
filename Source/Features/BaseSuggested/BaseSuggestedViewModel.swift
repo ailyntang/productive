@@ -2,47 +2,42 @@
 import UIKit
 
 struct BaseSuggestedViewModel {
-  let navBarTitle: String
   let numberOfSections = 2
   
-  private let content: String
+  private let habit: Habit
+  let habitStage: HabitStage
   
-  init(content: String) {
-    self.content = content
-    navBarTitle = content == "category" ? "Suggested Category" : "Suggested Habit"
+  init(habit: Habit, habitStage: HabitStage) {
+    self.habit = habit
+    self.habitStage = habitStage
   }
 
   func numberOfRowsIn(_ section: Int) -> Int {
-    return section == 0 ? 1 : Category.allCases.count
+    switch habitStage {
+    case .addCategory: return Category.allCases.count
+    case .addAction: return habit.category?.actions.count ?? 0
+    }
   }
   
   func titleForHeaderIn(_ section: Int) -> String? {
-    return section == 0 ? nil : "Or choose from these topics"
+    guard section == 0 else { return nil }
+    
+    switch habitStage {
+    case .addCategory: return "Or choose from these categories"
+    case .addAction: return "Or choose from these actions"
+    }
   }
   
-  func rowDisplayModel(for indexPath: IndexPath) -> CommonCellDisplayModelType {
-    if indexPath.section == 0 {
-      return CommonCellDisplayModel(icon: UIImage(named: "iconPencil"), title: "Write my own")
+  func cellViewModel(for indexPath: IndexPath) -> CommonCellDisplayModelType {
+    switch habitStage {
+    case .addCategory:
+      let category = Category(rawValue: indexPath.row)
+      return CommonCellDisplayModel(icon: category?.icon, title: category?.title)
+    case .addAction:
+      let category = habit.category
+      let action = category?.actions[indexPath.row]
+      return CommonCellDisplayModel(icon: action?.icon, title: action?.title)
     }
-    
-    var cell: CommonCellDisplayModelType
-    let row = indexPath.row
-    switch content {
-    case "category": cell = Category(rawValue: row) as! Category
-    case "health": cell = HealthHabit(rawValue: row) as! HealthHabit
-    default: cell = HealthHabit(rawValue: row) as! HealthHabit
-    }
-
-    return CommonCellDisplayModel(icon: cell.icon, title: cell.title)
-  }
-
-  func viewControllerForRowAt(_ indexPath: IndexPath) -> UIViewController {
-    if indexPath.section == 0 {
-      return ChooseNameAndIconViewController(with: ChooseNameAndIconViewModel())
-    }
-    
-    let habit = Category(rawValue: indexPath.row)?.title
-    return BaseSuggestedViewController(with: BaseSuggestedViewModel(content: habit ?? ""))
   }
 }
 
