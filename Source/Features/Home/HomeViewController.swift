@@ -1,7 +1,7 @@
 
 import UIKit
 
-final class ViewController: UIViewController {
+final class HomeViewController: UIViewController {
   
   let viewModel = HomeViewModel()
   
@@ -12,8 +12,15 @@ final class ViewController: UIViewController {
   }
   
   @objc func addTapped() {
-    navigationController?.pushViewController(BaseSuggestedViewController(with: BaseSuggestedViewModel(habit: Habit(),
-                                                                                                      habitStage: HabitStage.addCategory)),
-                                             animated: true)
+    let viewModel = BaseSuggestedViewModel(habit: Habit(), habitStage: HabitStage.addCategory)
+    let viewController = BaseSuggestedViewController(with: viewModel)
+    viewController.delegate = self
+    navigationController?.pushViewController(viewController, animated: true)
+  }
+}
+
+extension HomeViewController: AddNewHabitDelegate {
+  func addNew(habit: Habit) {
+    title = habit.action?.title
   }
 }

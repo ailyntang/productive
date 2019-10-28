@@ -31,7 +31,7 @@ enum Action: CaseIterable {
   case water
   case fruit
   
-  var title: String { return "" }
+  var title: String { return "FRUIT YO" }
   var icon: UIImage? { return nil }
 }
 

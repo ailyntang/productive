@@ -5,6 +5,7 @@ final class BaseSuggestedViewController: UIViewController {
   @IBOutlet private var tableView: UITableView!
   
   private var viewModel: BaseSuggestedViewModel!
+  var delegate: AddNewHabitDelegate!
 
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
@@ -44,5 +45,6 @@ extension BaseSuggestedViewController: UITableViewDataSource {
 extension BaseSuggestedViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
+    self.delegate?.addNew(habit: Habit(category: nil, action: .fruit))
   }
 }

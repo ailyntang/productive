@@ -1,6 +1,10 @@
 
 import UIKit
 
+protocol AddNewHabitDelegate {
+  func addNew(habit: Habit)
+}
+
 struct BaseSuggestedViewModel {
   let numberOfSections = 2
   
@@ -34,6 +38,7 @@ struct BaseSuggestedViewModel {
     guard indexPath.section == 1 else {
       return CommonCellDisplayModel(icon: UIImage(named: "iconPencil"), title: "Write my own")
     }
+
     switch habitStage {
     case .addCategory:
       let category = Category(rawValue: indexPath.row)
