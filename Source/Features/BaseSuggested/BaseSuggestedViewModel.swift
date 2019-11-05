@@ -28,15 +28,10 @@ struct BaseSuggestedViewModel {
   }
 
   func titleForHeaderIn(_ section: Int) -> String? {
-    // Section 0 has no title
     if section == 0 {
       return nil
-    } else {
-      switch habitStage {
-      case .addCategory: return "Or choose from these categories"
-      case .addAction: return "Or choose from these actions"
-      }
     }
+    return habitStage == .addCategory ? "Or choose from these categories" : "Or choose from these actions"
   }
 
   func cellViewModel(for indexPath: IndexPath) -> CommonCellDisplayModelType {
