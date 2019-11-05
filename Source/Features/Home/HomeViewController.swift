@@ -21,6 +21,6 @@ final class HomeViewController: UIViewController {
 
 extension HomeViewController: AddNewHabitDelegate {
   func addNewHabit(_ addNewHabit: UIViewController, habit: Habit) {
-    title = habit.action?.title
+    title = habit.action?.title ?? habit.category?.title
   }
 }
