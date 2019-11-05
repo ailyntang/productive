@@ -2,10 +2,16 @@
 import UIKit
 
 final class BaseSuggestedViewController: UIViewController {
-  @IBOutlet private var tableView: UITableView!
+  @IBOutlet private var tableView: UITableView! {
+    didSet {
+      tableView.register(cellType: CommonCell.self)
+    }
+  }
   
   private var viewModel: BaseSuggestedViewModel!
-  var delegate: AddNewHabitDelegate!
+  
+  // Can't figure out how to make this private
+  weak var delegate: AddNewHabitDelegate?
 
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
@@ -18,7 +24,6 @@ final class BaseSuggestedViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    tableView.register(cellType: CommonCell.self)
   }
 }
 
@@ -45,6 +50,6 @@ extension BaseSuggestedViewController: UITableViewDataSource {
 extension BaseSuggestedViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
-    self.delegate?.addNew(habit: Habit(category: nil, action: .fruit))
+    delegate?.addNewHabit(self, habit: Habit(category: nil, action: .fruit))
   }
 }

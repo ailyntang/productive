@@ -20,7 +20,7 @@ final class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: AddNewHabitDelegate {
-  func addNew(habit: Habit) {
+  func addNewHabit(_ addNewHabit: UIViewController, habit: Habit) {
     title = habit.action?.title
   }
 }

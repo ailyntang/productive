@@ -1,8 +1,8 @@
 
 import UIKit
 
-protocol AddNewHabitDelegate {
-  func addNew(habit: Habit)
+protocol AddNewHabitDelegate: class {
+  func addNewHabit(_ addNewHabit: UIViewController, habit: Habit)
 }
 
 struct BaseSuggestedViewModel {
@@ -17,20 +17,27 @@ struct BaseSuggestedViewModel {
   }
 
   func numberOfRowsIn(_ section: Int) -> Int {
-    guard section == 1 else { return 1 }
-
-    switch habitStage {
-    case .addCategory: return Category.allCases.count
-    case .addAction: return habit.category?.actions.count ?? 0
+    // Section 0 has one row: "Write my own"
+    if section == 0 {
+      return 1
+    } else {
+      // Section 1 has prefilled options
+      switch habitStage {
+      case .addCategory: return Category.allCases.count
+      case .addAction: return habit.category?.actions.count ?? 0
+      }
     }
   }
   
   func titleForHeaderIn(_ section: Int) -> String? {
-    guard section == 1 else { return nil }
-
-    switch habitStage {
-    case .addCategory: return "Or choose from these categories"
-    case .addAction: return "Or choose from these actions"
+    // Section 0 has no title
+    if section == 0 {
+      return nil
+    } else {
+      switch habitStage {
+      case .addCategory: return "Or choose from these categories"
+      case .addAction: return "Or choose from these actions"
+      }
     }
   }
   
