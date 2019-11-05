@@ -51,6 +51,10 @@ final class BaseSuggestedViewController: UIViewController, UITableViewDataSource
 
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
+    let newViewModel = BaseSuggestedViewModel(habit: viewModel.habit(for: indexPath), habitStage: .addAction)
+    let viewController = BaseSuggestedViewController(with: newViewModel)
+    navigationController?.pushViewController(viewController, animated: true)
+
     delegate?.addNewHabit(self, habit: viewModel.habit(for: indexPath))
   }
 }
