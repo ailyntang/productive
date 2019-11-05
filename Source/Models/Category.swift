@@ -14,8 +14,8 @@ enum Category: Int, CaseIterable {
 
   var icon: UIImage? {
     switch self {
-    case .health: return nil
-    case .fitness: return nil
+    case .health: return #imageLiteral(resourceName: "iconPharmacy")
+    case .fitness: return #imageLiteral(resourceName: "iconDumbbell")
     }
   }
 
