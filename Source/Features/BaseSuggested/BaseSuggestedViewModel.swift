@@ -3,6 +3,7 @@ import UIKit
 
 struct BaseSuggestedViewModel {
   let numberOfSections = 2
+  let title: String
   
   private let habit: Habit
   private let habitStage: HabitStage
@@ -10,6 +11,7 @@ struct BaseSuggestedViewModel {
   init(habit: Habit, habitStage: HabitStage) {
     self.habit = habit
     self.habitStage = habitStage
+    title = habitStage == .addCategory ? "Categories" : "Actions"
   }
 
   func numberOfRowsIn(_ section: Int) -> Int {

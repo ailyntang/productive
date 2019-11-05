@@ -24,6 +24,7 @@ final class BaseSuggestedViewController: UIViewController, UITableViewDataSource
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    title = viewModel.title
   }
 
   // MARK: - Conformance UITableViewDataSource
