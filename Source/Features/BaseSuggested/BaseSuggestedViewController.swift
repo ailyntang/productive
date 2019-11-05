@@ -1,7 +1,7 @@
 
 import UIKit
 
-final class BaseSuggestedViewController: UIViewController {
+final class BaseSuggestedViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
   @IBOutlet private var tableView: UITableView! {
     didSet {
       tableView.register(cellType: CommonCell.self)
@@ -25,9 +25,9 @@ final class BaseSuggestedViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
   }
-}
 
-extension BaseSuggestedViewController: UITableViewDataSource {
+  // MARK: - Conformance UITableViewDataSource
+
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return viewModel.numberOfRowsIn(section)
   }
@@ -45,9 +45,9 @@ extension BaseSuggestedViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
     return viewModel.titleForHeaderIn(section)
   }
-}
 
-extension BaseSuggestedViewController: UITableViewDelegate {
+  // MARK: - Conformance UITableViewDelegate
+
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
     delegate?.addNewHabit(self, habit: Habit(category: nil, action: .fruit))
