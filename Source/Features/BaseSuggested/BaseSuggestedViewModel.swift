@@ -1,10 +1,6 @@
 
 import UIKit
 
-protocol AddNewHabitDelegate: class {
-  func addNewHabit(_ addNewHabit: UIViewController, habit: Habit)
-}
-
 struct BaseSuggestedViewModel {
   let numberOfSections = 2
   

@@ -1,5 +1,9 @@
 
-import Foundation
+import UIKit
+
+protocol AddNewHabitDelegate: class {
+  func addNewHabit(_ addNewHabit: UIViewController, habit: Habit)
+}
 
 struct Habit {
   let category: Category?
