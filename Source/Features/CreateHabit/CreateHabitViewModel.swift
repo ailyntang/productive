@@ -1,6 +1,6 @@
 
 import Foundation
 
-struct ChooseNameAndIconViewModel {
+struct CreateHabitViewModel {
   let navBarTitle = "Choose Name and Icon"
 }

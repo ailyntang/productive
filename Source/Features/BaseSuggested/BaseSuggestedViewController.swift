@@ -54,7 +54,7 @@ final class BaseSuggestedViewController: UIViewController, UITableViewDataSource
     delegate?.addNewHabit(self, habit: viewModel.habit(for: indexPath))
 
     if indexPath.section == 0 {
-      navigationController?.pushViewController(ChooseNameAndIconViewController(with: ChooseNameAndIconViewModel()), animated: true)
+      navigationController?.pushViewController(CreateHabitViewController(with: CreateHabitViewModel()), animated: true)
     } else if title == "Categories" {
       let newViewModel = BaseSuggestedViewModel(habit: viewModel.habit(for: indexPath), habitStage: .addAction)
       let viewController = BaseSuggestedViewController(with: newViewModel)
