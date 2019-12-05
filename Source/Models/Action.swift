@@ -8,11 +8,17 @@ enum Action: CaseIterable {
 
   var title: String {
     switch self {
-    case .meal: return "Meal"
-    case .water: return "Water"
-    case .fruit: return "Fruit"
+    case .meal: return "Eat a good meal"
+    case .water: return "Drink some water"
+    case .fruit: return "Eat some fruit"
     }
   }
 
-  var icon: UIImage? { return nil }
+  var icon: UIImage? {
+    switch self {
+    case .meal: return #imageLiteral(resourceName: "iconWashingMachine")
+    case .water: return #imageLiteral(resourceName: "iconClock")
+    case .fruit: return #imageLiteral(resourceName: "iconWomanMan")
+    }
+  }
 }

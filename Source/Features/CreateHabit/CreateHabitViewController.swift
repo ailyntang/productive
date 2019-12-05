@@ -8,14 +8,14 @@
 
 import UIKit
 
-final class ChooseNameAndIconViewController: UIViewController {
-  private var viewModel: ChooseNameAndIconViewModel!
+final class CreateHabitViewController: UIViewController {
+  private var viewModel: CreateHabitViewModel!
 
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
   }
 
-  init(with viewModel: ChooseNameAndIconViewModel) {
+  init(with viewModel: CreateHabitViewModel) {
     super.init(nibName: nil, bundle: nil)
     self.viewModel = viewModel
   }

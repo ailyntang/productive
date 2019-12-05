@@ -22,7 +22,7 @@ enum Category: Int, CaseIterable {
   var actions: [Action] {
     switch self {
     case .health: return [.meal, .fruit, .water]
-    case .fitness: return []
+    case .fitness: return [.water]
     }
   }
 }
