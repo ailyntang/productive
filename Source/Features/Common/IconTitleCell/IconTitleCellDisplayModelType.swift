@@ -1,7 +1,7 @@
 
 import UIKit
 
-protocol CommonCellDisplayModelType {
+protocol IconTitleCellDisplayModelType {
   var icon: UIImage? { get }
   var title: String? { get }
 }

@@ -1,14 +1,14 @@
 
 import UIKit
 
-final class BaseSuggestedViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+final class SuggestionsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
   @IBOutlet private var tableView: UITableView! {
     didSet {
-      tableView.register(cellType: CommonCell.self)
+      tableView.register(cellType: IconTitleCell.self)
     }
   }
   
-  private var viewModel: BaseSuggestedViewModel!
+  private var viewModel: SuggestionsViewModel!
   
   // Can't figure out how to make this private
   weak var delegate: AddNewHabitDelegate?
@@ -17,7 +17,7 @@ final class BaseSuggestedViewController: UIViewController, UITableViewDataSource
     super.init(coder: aDecoder)
   }
 
-  init(with viewModel: BaseSuggestedViewModel) {
+  init(with viewModel: SuggestionsViewModel) {
     super.init(nibName: nil, bundle: nil)
     self.viewModel = viewModel
   }
@@ -34,7 +34,7 @@ final class BaseSuggestedViewController: UIViewController, UITableViewDataSource
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeue(cellType: CommonCell.self, for: indexPath)
+    let cell = tableView.dequeue(cellType: IconTitleCell.self, for: indexPath)
     cell.configure(with: viewModel.cellViewModel(for: indexPath))
     return cell
   }
@@ -56,8 +56,8 @@ final class BaseSuggestedViewController: UIViewController, UITableViewDataSource
     if indexPath.section == 0 {
       navigationController?.pushViewController(CreateHabitViewController(with: CreateHabitViewModel()), animated: true)
     } else if title == "Categories" {
-      let newViewModel = BaseSuggestedViewModel(habit: viewModel.habit(for: indexPath), habitStage: .addAction)
-      let viewController = BaseSuggestedViewController(with: newViewModel)
+      let newViewModel = SuggestionsViewModel(habit: viewModel.habit(for: indexPath), habitStage: .addAction)
+      let viewController = SuggestionsViewController(with: newViewModel)
       navigationController?.pushViewController(viewController, animated: true)
     } else {
       navigationController?.popToRootViewController(animated: true)

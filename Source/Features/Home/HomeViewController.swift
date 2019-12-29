@@ -31,8 +31,8 @@ final class HomeViewController: UIViewController {
     
     
     @objc func addTapped() {
-        let viewModel = BaseSuggestedViewModel(habit: Habit(), habitStage: HabitStage.addCategory)
-        let viewController = BaseSuggestedViewController(with: viewModel)
+        let viewModel = SuggestionsViewModel(habit: Habit(), habitStage: HabitStage.addCategory)
+        let viewController = SuggestionsViewController(with: viewModel)
         viewController.delegate = self
         navigationController?.pushViewController(viewController, animated: true)
     }

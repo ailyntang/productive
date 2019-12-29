@@ -1,16 +1,16 @@
 
 import UIKit
 
-final class CommonCell: UITableViewCell {
+final class IconTitleCell: UITableViewCell {
   @IBOutlet private var titleLabel: UILabel!
   @IBOutlet private var iconImageView: UIImageView!
   
-  func configure(with displayModel: CommonCellDisplayModelType) {
+  func configure(with displayModel: IconTitleCellDisplayModelType) {
     titleLabel?.text = displayModel.title
     iconImageView.image = displayModel.icon
   }
 }
 
-extension CommonCell: Dequeuable {
-  static var dequeueIdentifier: String = "CommonCell"
+extension IconTitleCell: Dequeuable {
+  static var dequeueIdentifier: String = "IconTitleCell"
 }
