@@ -2,5 +2,5 @@
 import UIKit
 
 protocol AddNewHabitDelegate: class {
-  func addNewHabit(_ addNewHabit: UIViewController, habit: Habit)
+  func addNewHabit(_ habit: Habit)
 }

@@ -19,14 +19,7 @@ final class HomeViewController: UIViewController {
         let categories: [Category] = [.fitness, .health]
         let viewModel = SuggestionsViewModel(with: categories, .forCategories)
         let viewController = SuggestionsViewController(with: viewModel)
-        viewController.delegate = self  // TODO: don't think I need this for the categories view model
         navigationController?.pushViewController(viewController, animated: true)
-    }
-}
-
-extension HomeViewController: AddNewHabitDelegate {
-    func addNewHabit(_ addNewHabit: UIViewController, habit: Habit) {
-        title = habit.title
     }
 }
 

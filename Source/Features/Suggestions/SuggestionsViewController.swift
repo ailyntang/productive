@@ -52,12 +52,6 @@ final class SuggestionsViewController: UIViewController, UITableViewDataSource, 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        //    let habit = viewModel.habit(for: indexPath)
-        //
-        //    if let _ = habit.action {
-        //        delegate?.addNewHabit(self, habit: habit)
-        //    }
-        
         if indexPath.section == 0 {
             navigationController?.pushViewController(CreateHabitViewController(with: CreateHabitViewModel()), animated: true)
             
@@ -66,10 +60,19 @@ final class SuggestionsViewController: UIViewController, UITableViewDataSource, 
             let habits: [Habit] = category.habits
             let viewModel = SuggestionsViewModel(with: habits, .forHabits)
             let viewController = SuggestionsViewController(with: viewModel)
+            viewController.delegate = self
             navigationController?.pushViewController(viewController, animated: true)
             
         } else {
+            let habit = viewModel.cells[indexPath.row] as! Habit
+            delegate?.addNewHabit(habit)
             navigationController?.popToRootViewController(animated: true)
         }
+    }
+}
+
+extension SuggestionsViewController: AddNewHabitDelegate {
+    func addNewHabit(_ habit: Habit) {
+        // TODO: add new habit to the database, need to figure out how to implement a database
     }
 }
