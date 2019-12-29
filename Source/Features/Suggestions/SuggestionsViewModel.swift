@@ -4,6 +4,10 @@ import UIKit
 struct SuggestionsViewModel {
     let numberOfSections = 2
     let title: String = Text.mainTitle
+    let addNewHabitCell: IconTitleCellDisplayModelType = {
+        let cell = IconTitleCellDisplayModel(icon: UIImage(named: "iconPencil")!, title: Text.addNewHabitTitle)
+        return cell
+    }()
     
     let cells: [IconTitleCellDisplayModelType]
     
@@ -23,4 +27,5 @@ struct SuggestionsViewModel {
 private enum Text {
     static let mainTitle = "Add new habit"
     static let sectionTitle = "Or choose from one of these options"
+    static let addNewHabitTitle = "Write your own"
 }

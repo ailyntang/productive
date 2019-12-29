@@ -34,7 +34,8 @@ final class SuggestionsViewController: UIViewController, UITableViewDataSource, 
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeue(cellType: IconTitleCell.self, for: indexPath)
-    cell.configure(with: viewModel.cells[indexPath.row])
+    let cellFromViewModel = indexPath.section == 0 ? viewModel.addNewHabitCell : viewModel.cells[indexPath.row]
+    cell.configure(with: cellFromViewModel)
     return cell
   }
 
