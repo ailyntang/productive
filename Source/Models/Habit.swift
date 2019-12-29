@@ -1,21 +1,24 @@
 
 import UIKit
 
-protocol AddNewHabitDelegate: class {
-  func addNewHabit(_ addNewHabit: UIViewController, habit: Habit)
-}
+enum Habit: CaseIterable, IconTitleCellDisplayModelType {
+  case meal
+  case water
+  case fruit
 
-struct Habit {
-  let category: Category?
-  let action: Action?
-  
-  init(category: Category? = nil, action: Action? = nil) {
-    self.category = category
-    self.action = action
+  var title: String {
+    switch self {
+    case .meal: return "Eat a good meal"
+    case .water: return "Drink some water"
+    case .fruit: return "Eat some fruit"
+    }
   }
-}
 
-enum HabitStage {
-  case addCategory
-  case addAction
+  var icon: UIImage {
+    switch self {
+    case .meal: return #imageLiteral(resourceName: "iconWashingMachine")
+    case .water: return #imageLiteral(resourceName: "iconClock")
+    case .fruit: return #imageLiteral(resourceName: "iconWomanMan")
+    }
+  }
 }

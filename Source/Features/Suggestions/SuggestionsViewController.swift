@@ -10,7 +10,6 @@ final class SuggestionsViewController: UIViewController, UITableViewDataSource, 
   
   private var viewModel: SuggestionsViewModel!
   
-  // Can't figure out how to make this private
   weak var delegate: AddNewHabitDelegate?
 
   required init?(coder aDecoder: NSCoder) {
@@ -35,7 +34,7 @@ final class SuggestionsViewController: UIViewController, UITableViewDataSource, 
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeue(cellType: IconTitleCell.self, for: indexPath)
-    cell.configure(with: viewModel.cellViewModel(for: indexPath))
+    cell.configure(with: viewModel.cells[indexPath.row])
     return cell
   }
 
@@ -51,13 +50,21 @@ final class SuggestionsViewController: UIViewController, UITableViewDataSource, 
 
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
-    delegate?.addNewHabit(self, habit: viewModel.habit(for: indexPath))
-
+    
+//    let habit = viewModel.habit(for: indexPath)
+//
+//    if let _ = habit.action {
+//        delegate?.addNewHabit(self, habit: habit)
+//    }
+    
     if indexPath.section == 0 {
       navigationController?.pushViewController(CreateHabitViewController(with: CreateHabitViewModel()), animated: true)
+    
+        // TODO: will need to change the else if away from the title
     } else if title == "Categories" {
-      let newViewModel = SuggestionsViewModel(habit: viewModel.habit(for: indexPath), habitStage: .addAction)
-      let viewController = SuggestionsViewController(with: newViewModel)
+        let habits: [Habit] = Category.fitness.habits
+        let viewModel = SuggestionsViewModel(with: habits)
+      let viewController = SuggestionsViewController(with: viewModel)
       navigationController?.pushViewController(viewController, animated: true)
     } else {
       navigationController?.popToRootViewController(animated: true)
