@@ -1,7 +1,7 @@
 
 import UIKit
 
-struct BaseSuggestedViewModel {
+struct SuggestionsViewModel {
   let numberOfSections = 2
   let title: String
   
