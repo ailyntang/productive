@@ -2,20 +2,7 @@
 import UIKit
 
 final class HomeViewController: UIViewController {
-//    private lazy var noHabitsView: UIView = {
-//        let view = UIView(frame: CGRect(x: 20, y: 100, width: 200, height: 400))
-//        view.backgroundColor = .red
-//        return view
-//    }()
-//
-//    private lazy var noHabitsLabel: UILabel = {
-//        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 200))
-//        label.text = "Add a habit to get started"
-//        label.numberOfLines = 0
-//        label.lineBreakMode = .byWordWrapping
-//        return label
-//    }()
-    
+
     let viewModel = HomeViewModel()
 
     override func viewDidLoad() {
@@ -27,8 +14,6 @@ final class HomeViewController: UIViewController {
             setupNoHabitsView()
         }
     }
-    
-    
     
     @objc func addTapped() {
         let viewModel = SuggestionsViewModel(habit: Habit(), habitStage: HabitStage.addCategory)
