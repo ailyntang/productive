@@ -17,7 +17,7 @@ final class HomeViewController: UIViewController {
     
     @objc func addTapped() {
         let categories: [Category] = [.fitness, .health]
-        let viewModel = SuggestionsViewModel(with: categories)
+        let viewModel = SuggestionsViewModel(with: categories, .forCategories)
         let viewController = SuggestionsViewController(with: viewModel)
         viewController.delegate = self  // TODO: don't think I need this for the categories view model
         navigationController?.pushViewController(viewController, animated: true)
