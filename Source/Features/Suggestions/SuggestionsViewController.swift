@@ -4,7 +4,7 @@ import UIKit
 final class SuggestionsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
   @IBOutlet private var tableView: UITableView! {
     didSet {
-      tableView.register(cellType: CommonCell.self)
+      tableView.register(cellType: IconTitleCell.self)
     }
   }
   
@@ -34,7 +34,7 @@ final class SuggestionsViewController: UIViewController, UITableViewDataSource, 
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeue(cellType: CommonCell.self, for: indexPath)
+    let cell = tableView.dequeue(cellType: IconTitleCell.self, for: indexPath)
     cell.configure(with: viewModel.cellViewModel(for: indexPath))
     return cell
   }

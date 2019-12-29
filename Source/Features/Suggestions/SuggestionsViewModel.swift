@@ -34,10 +34,10 @@ struct SuggestionsViewModel {
     return habitStage == .addCategory ? "Or choose from these categories" : "Or choose from these actions"
   }
 
-  func cellViewModel(for indexPath: IndexPath) -> CommonCellDisplayModelType {
+  func cellViewModel(for indexPath: IndexPath) -> IconTitleCellDisplayModelType {
     // Section 0 always returns the same cell
     if indexPath.section == 0 {
-      return CommonCellDisplayModel(icon: UIImage(named: "iconPencil"), title: "Write my own")
+      return IconTitleCellDisplayModel(icon: UIImage(named: "iconPencil"), title: "Write my own")
     }
 
     // Section 1 cells are based on the Category and Action models
@@ -54,7 +54,7 @@ struct SuggestionsViewModel {
       title = newHabit.action?.title
     }
 
-    return CommonCellDisplayModel(icon: icon, title: title)
+    return IconTitleCellDisplayModel(icon: icon, title: title)
   }
 
   func habit(for indexPath: IndexPath) -> Habit {

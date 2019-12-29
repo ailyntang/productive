@@ -1,7 +1,7 @@
 
 import UIKit
 
-struct CommonCellDisplayModel: CommonCellDisplayModelType {
+struct IconTitleCellDisplayModel: IconTitleCellDisplayModelType {
   var icon: UIImage?
   var title: String?
   
