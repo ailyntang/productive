@@ -84,7 +84,7 @@ extension SuggestionsViewController {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
 
         let managedContext = appDelegate.persistentContainer.viewContext
-        let entity = NSEntityDescription.entity(forEntityName: "HabitDatabase", in: managedContext)!
+        let entity = NSEntityDescription.entity(forEntityName: "MyHabit", in: managedContext)!
         let habitDatabase = NSManagedObject(entity: entity, insertInto: managedContext)
         
         habitDatabase.setValue(habit.title, forKeyPath: "title")
