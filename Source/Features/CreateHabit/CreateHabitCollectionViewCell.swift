@@ -8,11 +8,8 @@
 
 import UIKit
 
-class CreateHabitCollectionViewCell: UICollectionViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
+final class CreateHabitCollectionViewCell: UICollectionViewCell {
+    @IBOutlet private var imageView: UIImageView!
+    
+    
 }

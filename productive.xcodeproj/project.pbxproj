@@ -34,6 +34,7 @@
 		B954AE7E23B99B6900BFF89B /* CreateHabitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B954AE7D23B99B6900BFF89B /* CreateHabitViewController.xib */; };
 		B954AE8323B9A26800BFF89B /* CreateHabitCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B954AE8123B9A26800BFF89B /* CreateHabitCollectionViewCell.swift */; };
 		B954AE8423B9A26800BFF89B /* CreateHabitCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B954AE8223B9A26800BFF89B /* CreateHabitCollectionViewCell.xib */; };
+		B954AE8623B9F70C00BFF89B /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = B954AE8523B9F70C00BFF89B /* Icons.swift */; };
 		B9D592D8238FD3D0004DB8AC /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D592D7238FD3D0004DB8AC /* HomeViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +80,7 @@
 		B954AE7D23B99B6900BFF89B /* CreateHabitViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateHabitViewController.xib; sourceTree = "<group>"; };
 		B954AE8123B9A26800BFF89B /* CreateHabitCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateHabitCollectionViewCell.swift; sourceTree = "<group>"; };
 		B954AE8223B9A26800BFF89B /* CreateHabitCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateHabitCollectionViewCell.xib; sourceTree = "<group>"; };
+		B954AE8523B9F70C00BFF89B /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		B9D592D7238FD3D0004DB8AC /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -146,6 +148,7 @@
 			children = (
 				6A635497235E88D70042F2D0 /* Assets.xcassets */,
 				6A635461235D1EFA0042F2D0 /* Info.plist */,
+				B954AE8523B9F70C00BFF89B /* Icons.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -408,6 +411,7 @@
 				6A6354B4237185D30042F2D0 /* AddNewHabitDelegate.swift in Sources */,
 				6A63546C235D1EFB0042F2D0 /* HomeViewController.swift in Sources */,
 				6A63548C235DB9290042F2D0 /* UITableView+Dequeue.swift in Sources */,
+				B954AE8623B9F70C00BFF89B /* Icons.swift in Sources */,
 				6A63549C235ED8F20042F2D0 /* IconTitleCellDisplayModelType.swift in Sources */,
 				6A63547F235D37270042F2D0 /* SuggestionsViewModel.swift in Sources */,
 				6A63549E235ED95E0042F2D0 /* IconTitleCellDisplayModel.swift in Sources */,

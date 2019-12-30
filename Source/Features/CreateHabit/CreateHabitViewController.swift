@@ -46,24 +46,28 @@ extension CreateHabitViewController: UITableViewDataSource, UITableViewDelegate 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeue(cellType: IconTitleCell.self, for: indexPath)
         
-        let imageView = UIImageView(image: UIImage(named: "iconPencil")?.withRenderingMode(.alwaysTemplate))
-        imageView.tintColor = .gray
+        // The image color hasn't gone grey
+        let imageView = UIImageView(image: UIImage(named: Icon.pencil)?.withRenderingMode(.alwaysTemplate))
+        imageView.tintColor = .red
         
         cell.configure(with: IconTitleCellDisplayModel(icon: imageView.image!, title: "Name of habit"))
-        cell.textLabel?.textColor = .gray
+        cell.textLabel?.textColor = .red
         return cell
     }
 }
 
 extension CreateHabitViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return 5
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Text.cellIdentifier, for: indexPath)
+        cell.backgroundColor = .blue
         return cell
     }
+    
+    
 }
 
 private enum Text {

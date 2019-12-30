@@ -26,9 +26,8 @@ final class HomeViewController: UIViewController {
     }
     
     @objc func addTapped() {
-        let categories: [Category] = [.fitness, .health]
-        let viewModel = SuggestionsViewModel(with: categories, .forCategories)
-        let viewController = SuggestionsViewController(with: viewModel)
+        let suggestionsViewModel = SuggestionsViewModel(with: viewModel.categories, .forCategories)
+        let viewController = SuggestionsViewController(with: suggestionsViewModel)
         navigationController?.pushViewController(viewController, animated: true)
     }
 }
@@ -44,7 +43,7 @@ extension HomeViewController: UITableViewDataSource {
         let title = habit.value(forKeyPath: "title") as? String
         let icon = UIImage(data: habit.value(forKeyPath: "icon") as! Data)
         
-        cell.configure(with: IconTitleCellDisplayModel(icon: icon ?? UIImage(named: "iconPencil")!, title: title ?? ""))
+        cell.configure(with: IconTitleCellDisplayModel(icon: icon ?? UIImage(named: Icon.pencil)!, title: title ?? ""))
         return cell
     }
 }
