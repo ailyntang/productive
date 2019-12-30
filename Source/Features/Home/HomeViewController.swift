@@ -11,9 +11,7 @@ final class HomeViewController: UIViewController {
         }
     }
     
-    var habits: [NSManagedObject] = []
-    
-    let viewModel = HomeViewModel()
+    private var viewModel = HomeViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,18 +21,7 @@ final class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "HabitDatabase")
-        
-        do {
-          habits = try managedContext.fetch(fetchRequest)
-        } catch let error as NSError {
-          print("Could not fetch. \(error), \(error.userInfo)")
-        }
-        
+        viewModel.fetchHabits()
         tableView.reloadData()
     }
     
@@ -48,12 +35,12 @@ final class HomeViewController: UIViewController {
 
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return habits.count
+        return viewModel.habits.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeue(cellType: IconTitleCell.self, for: indexPath)
-        let habit = habits[indexPath.row]
+        let habit = viewModel.habits[indexPath.row]
         let title = habit.value(forKeyPath: "title") as? String
         let icon = UIImage(data: habit.value(forKeyPath: "icon") as! Data)
         
