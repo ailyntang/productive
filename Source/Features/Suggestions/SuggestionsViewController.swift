@@ -88,7 +88,7 @@ extension SuggestionsViewController {
         let habitDatabase = NSManagedObject(entity: entity, insertInto: managedContext)
         
         habitDatabase.setValue(habit.title, forKeyPath: "title")
-        habitDatabase.setValue("iconPencil", forKeyPath: "icon") // TODO: need this to be the icon name
+        habitDatabase.setValue(habit.icon.pngData(), forKeyPath: "icon")
         
         do {
             try managedContext.save()

@@ -58,7 +58,7 @@ extension HomeViewController: UITableViewDataSource {
         let cell = tableView.dequeue(cellType: IconTitleCell.self, for: indexPath)
         let habit = habits[indexPath.row]
         let title = habit.value(forKeyPath: "title") as? String
-        let icon = UIImage(named: habit.value(forKeyPath: "icon") as? String ?? "iconPencil")
+        let icon = UIImage(data: habit.value(forKeyPath: "icon") as! Data)
         
         cell.configure(with: IconTitleCellDisplayModel(icon: icon ?? UIImage(named: "iconPencil")!, title: title ?? ""))
         return cell
