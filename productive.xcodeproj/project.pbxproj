@@ -29,6 +29,7 @@
 		6A6354B2237185B40042F2D0 /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6354B1237185B40042F2D0 /* Habit.swift */; };
 		6A6354B4237185D30042F2D0 /* AddNewHabitDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6354B3237185D30042F2D0 /* AddNewHabitDelegate.swift */; };
 		B954AE7623B86B1500BFF89B /* Suggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = B954AE7523B86B1500BFF89B /* Suggestion.swift */; };
+		B954AE7923B8D47C00BFF89B /* Database.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B954AE7723B8D47C00BFF89B /* Database.xcdatamodeld */; };
 		B9D592D8238FD3D0004DB8AC /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D592D7238FD3D0004DB8AC /* HomeViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +70,7 @@
 		6A6354B1237185B40042F2D0 /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
 		6A6354B3237185D30042F2D0 /* AddNewHabitDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewHabitDelegate.swift; sourceTree = "<group>"; };
 		B954AE7523B86B1500BFF89B /* Suggestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Suggestion.swift; sourceTree = "<group>"; };
+		B954AE7823B8D47C00BFF89B /* Database.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Database.xcdatamodel; sourceTree = "<group>"; };
 		B9D592D7238FD3D0004DB8AC /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -208,6 +210,7 @@
 			children = (
 				6A6354A8235F09F60042F2D0 /* IconTitleCell */,
 				6A63548F235E451F0042F2D0 /* Dequeuable */,
+				B954AE7723B8D47C00BFF89B /* Database.xcdatamodeld */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				6A6354B02361697F0042F2D0 /* CreateHabitViewModel.swift in Sources */,
 				B954AE7623B86B1500BFF89B /* Suggestion.swift in Sources */,
 				6A635483235DB34A0042F2D0 /* IconTitleCell.swift in Sources */,
+				B954AE7923B8D47C00BFF89B /* Database.xcdatamodeld in Sources */,
 				6A635475235D33220042F2D0 /* HomeViewModel.swift in Sources */,
 				6A635487235DB3640042F2D0 /* SuggestionsViewController.swift in Sources */,
 				6A6354B4237185D30042F2D0 /* AddNewHabitDelegate.swift in Sources */,
@@ -632,6 +636,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B954AE7723B8D47C00BFF89B /* Database.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B954AE7823B8D47C00BFF89B /* Database.xcdatamodel */,
+			);
+			currentVersion = B954AE7823B8D47C00BFF89B /* Database.xcdatamodel */;
+			path = Database.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 6A635433235B9DFC0042F2D0 /* Project object */;
 }

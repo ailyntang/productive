@@ -1,5 +1,6 @@
 
 import UIKit
+import CoreData
 
 final class SuggestionsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet private var tableView: UITableView! {
@@ -8,6 +9,7 @@ final class SuggestionsViewController: UIViewController, UITableViewDataSource, 
         }
     }
     
+    var habits: [NSManagedObject] = []
     private var viewModel: SuggestionsViewModel!
     
     weak var delegate: AddNewHabitDelegate?
@@ -75,4 +77,25 @@ extension SuggestionsViewController: AddNewHabitDelegate {
     func addNewHabit(_ habit: Habit) {
         // TODO: add new habit to the database, need to figure out how to implement a database
     }
+}
+
+extension SuggestionsViewController {
+    private func save(habit: Habit) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "HabitDatabase", in: managedContext)!
+        let habitDatabase = NSManagedObject(entity: entity, insertInto: managedContext)
+        
+        habitDatabase.setValue(habit.title, forKeyPath: "title")
+        habitDatabase.setValue("iconPencil", forKeyPath: "icon") // TODO: need this to be the icon name
+        
+        do {
+            try managedContext.save()
+            habits.append(habitDatabase)
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+
 }
