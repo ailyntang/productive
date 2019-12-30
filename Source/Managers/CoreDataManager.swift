@@ -2,6 +2,7 @@
 import UIKit
 import CoreData
 
+// TODO: is there a way to stop this from being a global variable?
 var habits: [NSManagedObject] = []
 
 struct CoreDataManager {
@@ -21,6 +22,19 @@ struct CoreDataManager {
             habits.append(habitDatabase)
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+    
+    func fetchHabits() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "MyHabit")
+        
+        do {
+            habits = try managedContext.fetch(fetchRequest)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
         }
     }
 }

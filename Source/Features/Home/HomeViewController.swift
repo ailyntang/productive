@@ -21,7 +21,7 @@ final class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel.fetchHabits()
+        CoreDataManager().fetchHabits()
         tableView.reloadData()
     }
     
@@ -35,12 +35,12 @@ final class HomeViewController: UIViewController {
 
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.habits.count
+        return habits.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeue(cellType: IconTitleCell.self, for: indexPath)
-        let habit = viewModel.habits[indexPath.row]
+        let habit = habits[indexPath.row]
         let title = habit.value(forKeyPath: "title") as? String
         let icon = UIImage(data: habit.value(forKeyPath: "icon") as! Data)
         
