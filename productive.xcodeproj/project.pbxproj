@@ -30,6 +30,7 @@
 		6A6354B4237185D30042F2D0 /* AddNewHabitDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6354B3237185D30042F2D0 /* AddNewHabitDelegate.swift */; };
 		B954AE7623B86B1500BFF89B /* Suggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = B954AE7523B86B1500BFF89B /* Suggestion.swift */; };
 		B954AE7923B8D47C00BFF89B /* Database.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B954AE7723B8D47C00BFF89B /* Database.xcdatamodeld */; };
+		B954AE7C23B98D1E00BFF89B /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B954AE7B23B98D1E00BFF89B /* CoreDataManager.swift */; };
 		B9D592D8238FD3D0004DB8AC /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D592D7238FD3D0004DB8AC /* HomeViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +72,7 @@
 		6A6354B3237185D30042F2D0 /* AddNewHabitDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewHabitDelegate.swift; sourceTree = "<group>"; };
 		B954AE7523B86B1500BFF89B /* Suggestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Suggestion.swift; sourceTree = "<group>"; };
 		B954AE7823B8D47C00BFF89B /* Database.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Database.xcdatamodel; sourceTree = "<group>"; };
+		B954AE7B23B98D1E00BFF89B /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		B9D592D7238FD3D0004DB8AC /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -123,10 +125,11 @@
 		6A63545E235D1EFA0042F2D0 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				6A635489235DB8E90042F2D0 /* Extensions */,
-				6A63545F235D1EFA0042F2D0 /* Resources */,
 				6A635462235D1EFA0042F2D0 /* Features */,
 				6A635494235E82A40042F2D0 /* Models */,
+				B954AE7A23B98CF900BFF89B /* Managers */,
+				6A635489235DB8E90042F2D0 /* Extensions */,
+				6A63545F235D1EFA0042F2D0 /* Resources */,
 				6A635466235D1EFA0042F2D0 /* Startup */,
 			);
 			path = Source;
@@ -270,6 +273,14 @@
 			path = CreateHabit;
 			sourceTree = "<group>";
 		};
+		B954AE7A23B98CF900BFF89B /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				B954AE7B23B98D1E00BFF89B /* CoreDataManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -379,6 +390,7 @@
 				B954AE7623B86B1500BFF89B /* Suggestion.swift in Sources */,
 				6A635483235DB34A0042F2D0 /* IconTitleCell.swift in Sources */,
 				B954AE7923B8D47C00BFF89B /* Database.xcdatamodeld in Sources */,
+				B954AE7C23B98D1E00BFF89B /* CoreDataManager.swift in Sources */,
 				6A635475235D33220042F2D0 /* HomeViewModel.swift in Sources */,
 				6A635487235DB3640042F2D0 /* SuggestionsViewController.swift in Sources */,
 				6A6354B4237185D30042F2D0 /* AddNewHabitDelegate.swift in Sources */,

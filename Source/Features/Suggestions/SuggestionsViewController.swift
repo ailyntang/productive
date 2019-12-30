@@ -75,27 +75,6 @@ final class SuggestionsViewController: UIViewController, UITableViewDataSource, 
 
 extension SuggestionsViewController: AddNewHabitDelegate {
     func addNewHabit(_ habit: Habit) {
-        save(habit: habit)
+        CoreDataManager().save(habit)
     }
-}
-
-extension SuggestionsViewController {
-    private func save(habit: Habit) {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let entity = NSEntityDescription.entity(forEntityName: "MyHabit", in: managedContext)!
-        let habitDatabase = NSManagedObject(entity: entity, insertInto: managedContext)
-        
-        habitDatabase.setValue(habit.title, forKeyPath: "title")
-        habitDatabase.setValue(habit.icon.pngData(), forKeyPath: "icon")
-        
-        do {
-            try managedContext.save()
-            habits.append(habitDatabase)
-        } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
-        }
-    }
-
 }
