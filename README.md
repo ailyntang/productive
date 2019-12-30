@@ -120,3 +120,4 @@ Thanks to these great people for their icons from [freepick](https://www.flatico
 * fjstudio
 * Smashicons
 * Vectors Market
+* monkik
