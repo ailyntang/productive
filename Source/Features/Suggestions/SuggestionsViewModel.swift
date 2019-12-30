@@ -2,70 +2,34 @@
 import UIKit
 
 struct SuggestionsViewModel {
-  let numberOfSections = 2
-  let title: String
-  
-  private let habit: Habit
-  private let habitStage: HabitStage
-  
-  init(habit: Habit, habitStage: HabitStage) {
-    self.habit = habit
-    self.habitStage = habitStage
-    title = habitStage == .addCategory ? "Categories" : "Actions"
-  }
-
-  func numberOfRowsIn(_ section: Int) -> Int {
-    // Section 0 has one row: "Write my own"
-    if section == 0 {
-      return 1
-    } else {
-      // Section 1 has prefilled options
-      switch habitStage {
-      case .addCategory: return Category.allCases.count
-      case .addAction: return habit.category?.actions.count ?? 0
-      }
-    }
-  }
-
-  func titleForHeaderIn(_ section: Int) -> String? {
-    if section == 0 {
-      return nil
-    }
-    return habitStage == .addCategory ? "Or choose from these categories" : "Or choose from these actions"
-  }
-
-  func cellViewModel(for indexPath: IndexPath) -> IconTitleCellDisplayModelType {
-    // Section 0 always returns the same cell
-    if indexPath.section == 0 {
-      return IconTitleCellDisplayModel(icon: UIImage(named: "iconPencil"), title: "Write my own")
+    let numberOfSections = 2
+    let title: String
+    let addNewHabitCell: IconTitleCellDisplayModelType = {
+        let cell = IconTitleCellDisplayModel(icon: UIImage(named: "iconPencil")!, title: Text.addNewHabitTitle)
+        return cell
+    }()
+    
+    let cells: [IconTitleCellDisplayModelType]
+    let suggestion: Suggestion
+    
+    init(with cells: [IconTitleCellDisplayModelType], _  suggestion: Suggestion) {
+        self.cells = cells
+        self.suggestion = suggestion
+        title = suggestion == .forCategories ? Text.navTitleForCategories : Text.navTitleForHabits
     }
 
-    // Section 1 cells are based on the Category and Action models
-    let newHabit = habit(for: indexPath)
-    var icon: UIImage?
-    var title: String?
-
-    switch habitStage {
-    case .addCategory:
-      icon = newHabit.category?.icon
-      title = newHabit.category?.title
-    case .addAction:
-      icon = newHabit.action?.icon
-      title = newHabit.action?.title
+    func numberOfRowsIn(_ section: Int) -> Int {
+        return section == 0 ? 1 : cells.count
     }
-
-    return IconTitleCellDisplayModel(icon: icon, title: title)
-  }
-
-  func habit(for indexPath: IndexPath) -> Habit {
-    switch habitStage {
-    case .addCategory:
-      let category = Category(rawValue: indexPath.row)
-      return Habit(category: category, action: nil)
-    case .addAction:
-      let category = habit.category
-      let action = category?.actions[indexPath.row]
-      return Habit(category: category, action: action)
+    
+    func titleForHeaderIn(_ section: Int) -> String? {
+        return section == 0 ? nil : Text.sectionTitle
     }
-  }
+}
+
+private enum Text {
+    static let navTitleForCategories = "Choose a category"
+    static let navTitleForHabits = "Choose a habit"
+    static let sectionTitle = "Or choose from one of these options"
+    static let addNewHabitTitle = "Write your own"
 }

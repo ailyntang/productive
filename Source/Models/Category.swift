@@ -1,7 +1,8 @@
 
 import UIKit
 
-enum Category: Int, CaseIterable {
+enum Category: Int, CaseIterable, IconTitleCellDisplayModelType {
+    
   case health = 0
   case fitness
 
@@ -12,14 +13,14 @@ enum Category: Int, CaseIterable {
     }
   }
 
-  var icon: UIImage? {
+  var icon: UIImage {
     switch self {
     case .health: return #imageLiteral(resourceName: "iconPharmacy")
     case .fitness: return #imageLiteral(resourceName: "iconDumbbell")
     }
   }
 
-  var actions: [Action] {
+  var habits: [Habit] {
     switch self {
     case .health: return [.meal, .fruit, .water]
     case .fitness: return [.water]
