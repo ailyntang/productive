@@ -9,7 +9,6 @@ final class SuggestionsViewController: UIViewController, UITableViewDataSource, 
         }
     }
     
-    var habits: [NSManagedObject] = []
     private var viewModel: SuggestionsViewModel!
     
     weak var delegate: AddNewHabitDelegate?
