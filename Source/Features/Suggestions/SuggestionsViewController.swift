@@ -75,7 +75,7 @@ final class SuggestionsViewController: UIViewController, UITableViewDataSource, 
 
 extension SuggestionsViewController: AddNewHabitDelegate {
     func addNewHabit(_ habit: Habit) {
-        // TODO: add new habit to the database, need to figure out how to implement a database
+        save(habit: habit)
     }
 }
 
