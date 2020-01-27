@@ -24,7 +24,7 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="80"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="80" id="DUK-0X-VXP"/>
+                        <constraint firstAttribute="height" constant="80" id="IAT-Am-lvD"/>
                     </constraints>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="E2T-UY-5Xj"/>
@@ -36,7 +36,7 @@
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="usN-jJ-rSK">
                         <size key="itemSize" width="50" height="50"/>
-                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="headerReferenceSize" width="50" height="50"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
@@ -48,13 +48,13 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="wDk-gY-k1B" secondAttribute="trailing" id="183-Hg-W1t"/>
-                <constraint firstItem="wDk-gY-k1B" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="FHJ-Kr-sGZ"/>
-                <constraint firstItem="wDk-gY-k1B" firstAttribute="top" secondItem="WRK-se-fLU" secondAttribute="bottom" constant="20" id="bkQ-Jw-pHh"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="wDk-gY-k1B" secondAttribute="bottom" id="dCR-hb-HYD"/>
-                <constraint firstItem="WRK-se-fLU" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="klY-Hg-LUV"/>
-                <constraint firstItem="WRK-se-fLU" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="mHp-u9-xMp"/>
-                <constraint firstItem="WRK-se-fLU" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="u7u-FC-5rt"/>
+                <constraint firstItem="WRK-se-fLU" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Fyu-Sp-dwh"/>
+                <constraint firstItem="WRK-se-fLU" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="PKo-5d-qy5"/>
+                <constraint firstItem="wDk-gY-k1B" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="Usn-Kr-nnD"/>
+                <constraint firstItem="wDk-gY-k1B" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="Uz0-yB-Jmt"/>
+                <constraint firstItem="WRK-se-fLU" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="sPK-q1-Djh"/>
+                <constraint firstItem="wDk-gY-k1B" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="vlK-Aj-PZk"/>
+                <constraint firstItem="wDk-gY-k1B" firstAttribute="top" secondItem="WRK-se-fLU" secondAttribute="bottom" constant="20" id="zoX-0L-Feq"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="139" y="141"/>

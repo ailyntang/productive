@@ -15,13 +15,19 @@ final class CreateHabitViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var collectionView: UICollectionView! {
+    @IBOutlet private var collectionView: UICollectionView! {
         didSet {
             collectionView.register(CreateHabitCollectionViewCell.self, forCellWithReuseIdentifier: Text.cellIdentifier)
         }
     }
     
     private var viewModel: CreateHabitViewModel!
+    
+    // Collection View Properties
+    private let itemsPerRow: CGFloat = 4
+    private let inset: CGFloat = 20
+    private lazy var sectionInsets = UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
+    
 
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
@@ -35,6 +41,7 @@ final class CreateHabitViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     title = viewModel.navBarTitle
+    collectionView.register(CreateHabitCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: Text.sectionHeaderIdentifier)
   }
 }
 
@@ -58,7 +65,7 @@ extension CreateHabitViewController: UITableViewDataSource, UITableViewDelegate 
 
 extension CreateHabitViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return 15
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -67,9 +74,40 @@ extension CreateHabitViewController: UICollectionViewDataSource, UICollectionVie
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        guard kind == UICollectionView.elementKindSectionHeader else {
+            return UICollectionReusableView()
+        }
+        let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
+                                                                   withReuseIdentifier: Text.sectionHeaderIdentifier,
+                                                                   for: indexPath) as! CreateHabitCollectionReusableView
+
+        print(view)
+        view.setSectionHeaderTo("yoyoyoyoyoyoyo")  // TODO: this is failing as the titleLabel is nil.
+        view.backgroundColor = .red
+        return view
+    }
+}
+
+extension CreateHabitViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let paddingSpace = inset * (itemsPerRow + 1)
+        let availableWidth = view.frame.width - paddingSpace
+        let widthPerItem = availableWidth / itemsPerRow
+        
+        return CGSize(width: widthPerItem, height: widthPerItem)
+    }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return sectionInsets
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return inset
+    }
 }
 
 private enum Text {
     static let cellIdentifier = "CollectionViewCell"
+    static let sectionHeaderIdentifier = "SectionHeader"
 }
