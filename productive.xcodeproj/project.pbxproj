@@ -35,8 +35,8 @@
 		B954AE8323B9A26800BFF89B /* CreateHabitCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B954AE8123B9A26800BFF89B /* CreateHabitCollectionViewCell.swift */; };
 		B954AE8423B9A26800BFF89B /* CreateHabitCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B954AE8223B9A26800BFF89B /* CreateHabitCollectionViewCell.xib */; };
 		B954AE8623B9F70C00BFF89B /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = B954AE8523B9F70C00BFF89B /* Icons.swift */; };
-		B954AE8923BB62F200BFF89B /* CreateHabitCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B954AE8723BB62F200BFF89B /* CreateHabitCollectionReusableView.swift */; };
-		B954AE8A23BB62F200BFF89B /* CreateHabitCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B954AE8823BB62F200BFF89B /* CreateHabitCollectionReusableView.xib */; };
+		B9A0F0C323DEB627003CC683 /* CreateHabitHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A0F0C123DEB627003CC683 /* CreateHabitHeaderView.swift */; };
+		B9A0F0C423DEB627003CC683 /* CreateHabitHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9A0F0C223DEB627003CC683 /* CreateHabitHeaderView.xib */; };
 		B9D592D8238FD3D0004DB8AC /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D592D7238FD3D0004DB8AC /* HomeViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -83,8 +83,8 @@
 		B954AE8123B9A26800BFF89B /* CreateHabitCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateHabitCollectionViewCell.swift; sourceTree = "<group>"; };
 		B954AE8223B9A26800BFF89B /* CreateHabitCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateHabitCollectionViewCell.xib; sourceTree = "<group>"; };
 		B954AE8523B9F70C00BFF89B /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
-		B954AE8723BB62F200BFF89B /* CreateHabitCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateHabitCollectionReusableView.swift; sourceTree = "<group>"; };
-		B954AE8823BB62F200BFF89B /* CreateHabitCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateHabitCollectionReusableView.xib; sourceTree = "<group>"; };
+		B9A0F0C123DEB627003CC683 /* CreateHabitHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateHabitHeaderView.swift; sourceTree = "<group>"; };
+		B9A0F0C223DEB627003CC683 /* CreateHabitHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateHabitHeaderView.xib; sourceTree = "<group>"; };
 		B9D592D7238FD3D0004DB8AC /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -285,8 +285,8 @@
 				6A6354AF2361697F0042F2D0 /* CreateHabitViewModel.swift */,
 				B954AE8123B9A26800BFF89B /* CreateHabitCollectionViewCell.swift */,
 				B954AE8223B9A26800BFF89B /* CreateHabitCollectionViewCell.xib */,
-				B954AE8723BB62F200BFF89B /* CreateHabitCollectionReusableView.swift */,
-				B954AE8823BB62F200BFF89B /* CreateHabitCollectionReusableView.xib */,
+				B9A0F0C123DEB627003CC683 /* CreateHabitHeaderView.swift */,
+				B9A0F0C223DEB627003CC683 /* CreateHabitHeaderView.xib */,
 			);
 			path = CreateHabit;
 			sourceTree = "<group>";
@@ -382,9 +382,9 @@
 			files = (
 				6A635473235D21BB0042F2D0 /* LaunchScreen.storyboard in Resources */,
 				6A635472235D21A40042F2D0 /* Home.storyboard in Resources */,
+				B9A0F0C423DEB627003CC683 /* CreateHabitHeaderView.xib in Resources */,
 				6A635484235DB34A0042F2D0 /* IconTitleCell.xib in Resources */,
 				6A635488235DB3640042F2D0 /* SuggestionsViewController.xib in Resources */,
-				B954AE8A23BB62F200BFF89B /* CreateHabitCollectionReusableView.xib in Resources */,
 				B954AE8423B9A26800BFF89B /* CreateHabitCollectionViewCell.xib in Resources */,
 				6A635498235E88D70042F2D0 /* Assets.xcassets in Resources */,
 				B954AE7E23B99B6900BFF89B /* CreateHabitViewController.xib in Resources */,
@@ -408,7 +408,6 @@
 				6A63546E235D1EFB0042F2D0 /* AppDelegate.swift in Sources */,
 				6A6354AD236169710042F2D0 /* CreateHabitViewController.swift in Sources */,
 				6A6354B02361697F0042F2D0 /* CreateHabitViewModel.swift in Sources */,
-				B954AE8923BB62F200BFF89B /* CreateHabitCollectionReusableView.swift in Sources */,
 				B954AE7623B86B1500BFF89B /* Suggestion.swift in Sources */,
 				6A635483235DB34A0042F2D0 /* IconTitleCell.swift in Sources */,
 				B954AE7923B8D47C00BFF89B /* Database.xcdatamodeld in Sources */,
@@ -423,6 +422,7 @@
 				6A63549C235ED8F20042F2D0 /* IconTitleCellDisplayModelType.swift in Sources */,
 				6A63547F235D37270042F2D0 /* SuggestionsViewModel.swift in Sources */,
 				6A63549E235ED95E0042F2D0 /* IconTitleCellDisplayModel.swift in Sources */,
+				B9A0F0C323DEB627003CC683 /* CreateHabitHeaderView.swift in Sources */,
 				6A6354B2237185B40042F2D0 /* Habit.swift in Sources */,
 				6A635496235E82C00042F2D0 /* Category.swift in Sources */,
 				6A63548E235E42A40042F2D0 /* Dequeuable.swift in Sources */,

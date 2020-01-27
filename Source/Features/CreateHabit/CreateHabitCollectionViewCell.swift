@@ -10,6 +10,4 @@ import UIKit
 
 final class CreateHabitCollectionViewCell: UICollectionViewCell {
     @IBOutlet private var imageView: UIImageView!
-    
-    
 }
