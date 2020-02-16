@@ -12,8 +12,6 @@ final class CreateHabitHeaderView: UICollectionReusableView {
     @IBOutlet private var headerLabel: UILabel!
     
     func render() {
-        backgroundColor = .purple
-        headerLabel?.text = "Meep morp"    // TODO: this is always nil, why?
-        headerLabel?.textColor = .white
+        headerLabel?.text = "Pick an icon"
     }
 }

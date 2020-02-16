@@ -19,7 +19,6 @@
 		6A635487235DB3640042F2D0 /* SuggestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A635485235DB3640042F2D0 /* SuggestionsViewController.swift */; };
 		6A635488235DB3640042F2D0 /* SuggestionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A635486235DB3640042F2D0 /* SuggestionsViewController.xib */; };
 		6A63548C235DB9290042F2D0 /* UITableView+Dequeue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A63548B235DB9290042F2D0 /* UITableView+Dequeue.swift */; };
-		6A63548E235E42A40042F2D0 /* Dequeuable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A63548D235E42A40042F2D0 /* Dequeuable.swift */; };
 		6A635496235E82C00042F2D0 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A635495235E82C00042F2D0 /* Category.swift */; };
 		6A635498235E88D70042F2D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A635497235E88D70042F2D0 /* Assets.xcassets */; };
 		6A63549C235ED8F20042F2D0 /* IconTitleCellDisplayModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A63549B235ED8F20042F2D0 /* IconTitleCellDisplayModelType.swift */; };
@@ -67,7 +66,6 @@
 		6A635485235DB3640042F2D0 /* SuggestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsViewController.swift; sourceTree = "<group>"; };
 		6A635486235DB3640042F2D0 /* SuggestionsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuggestionsViewController.xib; sourceTree = "<group>"; };
 		6A63548B235DB9290042F2D0 /* UITableView+Dequeue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Dequeue.swift"; sourceTree = "<group>"; };
-		6A63548D235E42A40042F2D0 /* Dequeuable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dequeuable.swift; sourceTree = "<group>"; };
 		6A635495235E82C00042F2D0 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		6A635497235E88D70042F2D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6A63549B235ED8F20042F2D0 /* IconTitleCellDisplayModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconTitleCellDisplayModelType.swift; sourceTree = "<group>"; };
@@ -225,7 +223,6 @@
 			isa = PBXGroup;
 			children = (
 				6A6354A8235F09F60042F2D0 /* IconTitleCell */,
-				6A63548F235E451F0042F2D0 /* Dequeuable */,
 				B954AE7723B8D47C00BFF89B /* Database.xcdatamodeld */,
 			);
 			path = Common;
@@ -245,14 +242,6 @@
 				6A63548B235DB9290042F2D0 /* UITableView+Dequeue.swift */,
 			);
 			path = UITableView;
-			sourceTree = "<group>";
-		};
-		6A63548F235E451F0042F2D0 /* Dequeuable */ = {
-			isa = PBXGroup;
-			children = (
-				6A63548D235E42A40042F2D0 /* Dequeuable.swift */,
-			);
-			path = Dequeuable;
 			sourceTree = "<group>";
 		};
 		6A635494235E82A40042F2D0 /* Models */ = {
@@ -425,7 +414,6 @@
 				B9A0F0C323DEB627003CC683 /* CreateHabitHeaderView.swift in Sources */,
 				6A6354B2237185B40042F2D0 /* Habit.swift in Sources */,
 				6A635496235E82C00042F2D0 /* Category.swift in Sources */,
-				6A63548E235E42A40042F2D0 /* Dequeuable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

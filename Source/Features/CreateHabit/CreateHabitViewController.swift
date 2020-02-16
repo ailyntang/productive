@@ -10,29 +10,10 @@ import UIKit
 
 final class CreateHabitViewController: UIViewController {
     
-    // MARK: Properites
+    // MARK: - Properites
     
-    @IBOutlet private var tableView: UITableView! {
-        didSet {
-            tableView.register(cellType: IconTitleCell.self)
-        }
-    }
-    
-    @IBOutlet private var collectionView: UICollectionView! {
-        didSet {
-            collectionView.register(CreateHabitCollectionViewCell.self, forCellWithReuseIdentifier: Text.cellIdentifier)
-//            collectionView.register(CreateHabitHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: Text.sectionHeaderIdentifier)
-            let layout = UICollectionViewFlowLayout()
-            layout.itemSize = CGSize(width: iconWidth, height: iconWidth)
-            layout.minimumInteritemSpacing = inset
-            layout.minimumLineSpacing = inset
-            layout.headerReferenceSize = CGSize(width: 0, height: inset)
-            layout.sectionHeadersPinToVisibleBounds = true
-            layout.sectionInset = sectionInsets
-            collectionView.collectionViewLayout = layout
-        }
-    }
-    
+    @IBOutlet private var tableView: UITableView!
+    @IBOutlet private var collectionView: UICollectionView!
     private var viewModel: CreateHabitViewModel!
     
     // Collection View Properties
@@ -40,7 +21,7 @@ final class CreateHabitViewController: UIViewController {
     private let inset: CGFloat = 40
     private lazy var sectionInsets = UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
     
-    // MARK: Initialization
+    // MARK: - Initialization
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -54,10 +35,31 @@ final class CreateHabitViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = viewModel.navBarTitle
-        collectionView.register(CreateHabitHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: Text.sectionHeaderIdentifier)
+        registerComponents()
+        setupCollectionView()
+    }
+    
+    // MARK: - Private methods
+    
+    private func registerComponents() {
+        tableView.register(cellType: IconTitleCell.self)
+        collectionView.register(UINib.init(nibName: "CreateHabitHeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: Text.sectionHeaderIdentifier)
+        collectionView.register(CreateHabitCollectionViewCell.self, forCellWithReuseIdentifier: Text.cellIdentifier)
+    }
+    
+    private func setupCollectionView() {
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: iconWidth, height: iconWidth)
+        layout.minimumInteritemSpacing = inset
+        layout.minimumLineSpacing = inset
+        layout.headerReferenceSize = CGSize(width: 0, height: inset)
+        layout.sectionHeadersPinToVisibleBounds = true
+        layout.sectionInset = sectionInsets
+        collectionView.collectionViewLayout = layout
     }
 }
 
+// MARK: - UITableViewDelegate & DataSource
 extension CreateHabitViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
@@ -65,7 +67,6 @@ extension CreateHabitViewController: UITableViewDataSource, UITableViewDelegate 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeue(cellType: IconTitleCell.self, for: indexPath)
-        
         // The image color hasn't gone grey
         let imageView = UIImageView(image: UIImage(named: Icon.pencil)?.withRenderingMode(.alwaysTemplate))
         imageView.tintColor = .red
@@ -75,6 +76,8 @@ extension CreateHabitViewController: UITableViewDataSource, UITableViewDelegate 
         return cell
     }
 }
+
+// MARK: - UICollectionViewDelegate & DataSource
 
 extension CreateHabitViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
